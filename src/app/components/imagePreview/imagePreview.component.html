@@ -1,0 +1,4 @@
+<div [ngClass]="{ modalBackground : backingState }">
+    <img src="../../../assets/spinner_holdings.gif" alt="" [lazyLoad]="singer.image"  (dblclick)="imagePreview($event)" [ngClass]="{ modalImage : backingState }">
+    <h5>{{singer.name}}</h5>
+</div>

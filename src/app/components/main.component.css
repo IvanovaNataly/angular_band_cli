@@ -1,0 +1,31 @@
+:host
+{
+    display: flex;
+    max-width: 1920px;
+    height: calc(100vh - 70px);
+    padding: 40px;
+    margin: 0 auto;
+}
+
+.left
+{
+    flex: 1 0 0;
+    background-color: rgba(255, 255, 255 , 0.1);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px;
+}
+
+.right
+{
+    flex: 2 0 0;
+    padding: 20px;
+}
+
+.search-query {
+    margin-bottom: 40px;
+}
+
+.video-frame {
+  display: block;
+  margin: 70px auto;
+}

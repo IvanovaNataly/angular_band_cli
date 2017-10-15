@@ -10,9 +10,9 @@ export class GithubFollowersComponent implements OnInit {
 
   constructor() {
     this.followers = [
-      {id: 1, login: 'SpiderMan'},
-      {id: 2, login: 'SuperMan'},
-      {id: 3, login: 'Captain America'}
+      {id: 123456, login: 'SpiderMan'},
+      {id: 789012, login: 'SuperMan'},
+      {id: 345678, login: 'Captain America'}
     ]
   }
 

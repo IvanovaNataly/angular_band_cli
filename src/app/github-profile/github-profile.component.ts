@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 
@@ -7,16 +7,21 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './github-profile.component.html',
   styleUrls: ['./github-profile.component.css']
 })
-export class GithubProfileComponent implements OnInit {
+export class GithubProfileComponent implements OnInit, OnDestroy {
   id: number;
+  sub: any;
 
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(paramMap => {
+    this. sub = this.route.paramMap.subscribe(paramMap => {
       this.id = +paramMap.get('id');
       console.log(this.id);
     });
+  }
+
+  ngOnDestroy() {
+      this.sub.unsubscribe();
   }
 
 }

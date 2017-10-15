@@ -1,0 +1,30 @@
+:host
+{
+    color: #000;
+}
+
+.card {
+    margin: 40px;
+    padding: 40px;
+}
+
+.card-head
+{
+    position: relative;
+}
+
+/*.card-content>* {*/
+    /*display: block;*/
+    /*width: 154px;*/
+    /*margin-bottom: 10px;*/
+/*}*/
+
+.active {
+    background-color: #b2dfdb;
+}
+
+.modalImage figure {
+    background-size: 100%;
+    overflow: hidden;
+}
+

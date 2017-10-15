@@ -1,0 +1,41 @@
+<div class="left">
+
+    <div class="input-field col s6">
+        <input placeholder="Enter singer's name" id="searchForSinger" type="text" class="validate"
+               [(ngModel)]="searchForSinger">
+        <label for="searchForSinger" class="active">First Name</label>
+    </div>
+
+    <div class="search-query">
+        You searched for: {{ searchForSinger }}
+    </div>
+
+    <singer-card *ngFor="let singer of singers | filterList : searchForSinger" [singer]="singer"
+                 (onSelectToPlay)="onSelectToPlay($event)" id="band-{{bandIndex}}"></singer-card>
+
+</div>
+<div class="right">
+    <iframe width="90%" height="80%" class="video-frame" [src]="videoSource" frameborder="0" allowfullscreen *ngIf="videoSource"></iframe>
+
+    <div>
+
+        <div class="input-field col s6">
+            <input placeholder="Placeholder" id="first_name" type="text" class="validate" [(ngModel)]="name" (keyup.enter)="saveName($event)">
+            <label for="first_name" class="active">First Name</label>
+        </div>
+
+        <!--<div>-->
+            <!--My First Name {{ name }}-->
+        <!--</div>-->
+
+        <form action="#">
+            <music-style  *ngFor="let musicStyle of musicStyles; let i = index" [musicStyle]="musicStyle" [i]="i"></music-style>
+        </form>
+
+
+
+
+
+    </div>
+
+</div>
