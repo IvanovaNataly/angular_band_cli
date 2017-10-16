@@ -1,0 +1,9 @@
+:host {
+    font-size: 14px;
+    line-height: 60px;
+}
+
+.music-style .material-icons {
+    line-height: unset;
+    float: right;
+}

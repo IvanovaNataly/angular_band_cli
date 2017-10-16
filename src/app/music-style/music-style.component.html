@@ -1,4 +1,5 @@
-<div [@lightsOnOff]="roomState"  >
+<div [@lightsOnOff]="roomState"  class="music-style">
     <input type="checkbox" id="style-{{i}}" />
     <label  (click)="toggleLights()" for="style-{{i}}">{{ musicStyle }}</label>
+    <i class="material-icons" [@spinnerWheel]="roomState">rotate_right</i>
 </div>

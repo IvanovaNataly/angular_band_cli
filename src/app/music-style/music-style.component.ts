@@ -19,8 +19,14 @@ import {
             state( 'off', style({
                 backgroundColor: '#fff'
             })),
-            transition('off => on', [animate('0.5s')]),
-            transition('on => off', [animate('0.5s')]),
+            transition('off <=> on', [animate('0.5s')])
+        ]),
+        trigger('spinnerWheel', [
+            state('on', style({
+            })),
+            state( 'off', style({
+            })),
+            transition('off <=> on', [animate('1s', style({transform: 'rotate(360deg)'}))])
         ])
     ]
 })
