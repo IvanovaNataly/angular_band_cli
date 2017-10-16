@@ -1,5 +1,12 @@
-<div [@lightsOnOff]="roomState"  class="music-style">
+<div [@lightsOnOff]="roomState"  class="collapsible-header music-style">
     <input type="checkbox" id="style-{{i}}" />
     <label  (click)="toggleLights()" for="style-{{i}}">{{ musicStyle }}</label>
-    <i class="material-icons" [@spinnerWheel]="roomState">rotate_right</i>
+    <i class="material-icons" [@spinnerWheel]="roomState" (@spinnerWheel.done)="spinnerWheelDone($event)">rotate_right</i>
+    <i class="material-icons icon-download" [@downloading]="spinnerState" (@downloading.done)="downloadingDone($event)">arrow_downward</i>
 </div>
+
+<ul class="collapsible-body" [ngClass]="{ collapsibleItems : collapsible }" >
+    <li class="collection-item" *ngFor="let song of songs" (dblclick)="flyAwaySong(song)" >
+        <song [song]="song" *ngIf="song.showSong" [@flyOut]></song>
+    </li>
+</ul>

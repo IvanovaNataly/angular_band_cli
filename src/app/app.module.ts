@@ -56,6 +56,7 @@ import { PostsComponent } from './posts/posts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SingerProfileComponent } from './singer-profile/singer-profile.component';
 import { MusicStyleComponent } from './music-style/music-style.component';
+import { SongComponent } from './song/song.component';
 
 
 const routes = [
@@ -85,7 +86,8 @@ const routes = [
         /* */
         LazyLoadDirective,
         SingerProfileComponent,
-        MusicStyleComponent
+        MusicStyleComponent,
+        SongComponent
         ],
         imports: [
         BrowserModule,

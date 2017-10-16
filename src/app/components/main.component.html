@@ -28,9 +28,11 @@
             <!--My First Name {{ name }}-->
         <!--</div>-->
 
-        <form action="#">
-            <music-style  *ngFor="let musicStyle of musicStyles; let i = index" [musicStyle]="musicStyle" [i]="i"></music-style>
-        </form>
+        <ul class="collapsible" data-collapsible="accordion">
+            <li *ngFor="let musicStyle of musicStyles; let i = index" >
+                <music-style  [musicStyle]="musicStyle" [i]="i"></music-style>
+            </li>
+        </ul>
 
 
 

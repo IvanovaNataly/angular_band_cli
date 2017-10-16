@@ -21,7 +21,6 @@ export default class SingerCardComponent {
 
     ngOnInit() {
         this.singerName = this.singer.name.replace(" ", "-");
-        console.log(this.singerName);
     }
 
     /**

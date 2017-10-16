@@ -30,7 +30,7 @@ export class MainContainerComponent {
 
         this.videoSource = this.sanitizer.bypassSecurityTrustResourceUrl(this.singers[0].videoUrl);
 
-        this.musicStyles = ['mantras', 'new age', 'jszz', 'folk', 'new wave'];
+        this.musicStyles = ['mantras', 'new age', 'jazz', 'folk', 'new wave'];
 
     }
 
