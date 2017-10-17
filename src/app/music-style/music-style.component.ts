@@ -6,7 +6,8 @@ import {
     style,
     animate,
     transition,
-    group
+    group,
+    keyframes
 } from '@angular/animations';
 
 @Component({
@@ -28,40 +29,53 @@ import {
             })),
             state( 'off', style({
             })),
-            transition('off <=> on', [animate('1s', style({transform: 'rotate(360deg)'}))])
+            transition('off <=> on', [animate('0.1s', style({transform: 'rotate(360deg)'}))]) //1sec
         ]),
+        // trigger('downloading', [
+        //     state('on', style( {
+        //         opacity: '0'
+        //     } )),
+        //     state( 'off', style({
+        //         opacity: '1'
+        //     })),
+        //     transition('on => off', [group ([
+        //         animate( '0.5s ease-in',
+        //             style({
+        //                 opacity: '1'
+        //             })),
+        //         animate( '0.5s',
+        //             style({
+        //                 top: '30px'
+        //             }))
+        //     ])]),
+        //     transition('off => on', [animate('1s')])
+        // ]),
         trigger('downloading', [
             state('on', style( {
-                opacity: '0'
+                opacity: '0', top: '8px'
             } )),
             state( 'off', style({
-                opacity: '1'
+                opacity: '1', top: '25px'
             })),
-            transition('on => off', [group ([
-                animate( '0.5s ease-in',
-                    style({
-                        opacity: '1'
-                    })),
-                animate( '0.5s',
-                    style({
-                        top: '30px'
-                    }))
-            ])]),
-            transition('off => on', [animate('1s')])
-        ]),
-        // trigger('flyOut', [
-        //         transition(':leave', [
-        //             animate('5s', style({transform: 'translateX(100%)'})) ])
-        // ]),
-        trigger('flyOut', [
-            state('in', style({transform: 'translateX(0)'})),
-            transition('void => *', [
-                style({transform: 'translateX(-100%)'}),
-                animate(100)
+            transition('on => off', [
+                animate('1s', keyframes([
+                    style({opacity: 0, top: 0}),
+                    style({opacity: 1, top: '25px'}),
+                    style({opacity: 1, top: '15px'}),
+                    style({opacity: 1, top: '25px'})
+                    ]))
             ]),
-            transition('* => void', [
-                animate(100, style({transform: 'translateX(100%)'}))
-            ])
+            transition('off => on', [animate('0.5s')])
+        ]),
+        trigger('flyOut', [
+        // state('in', style({transform: 'translateX(0)'})),
+        // transition(':enter', [
+        //     style({transform: 'translateX(-100%)'}),
+        //     animate('1s')
+        // ]),
+        transition(':leave', [
+            animate('1s', style({transform: 'translateX(100%)'}))
+        ])
         ])
     ]
 })
@@ -75,7 +89,6 @@ export class MusicStyleComponent implements OnInit {
     roomState: string = 'off';
     spinnerState: string = 'on';
     collapsible: boolean = false;
-
 
     constructor() {
         this.songs = [
@@ -105,6 +118,7 @@ export class MusicStyleComponent implements OnInit {
     flyAwaySong(song: SongModel) {
         song.showSong = false;
     }
+
 
 
 }

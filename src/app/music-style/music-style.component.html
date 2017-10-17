@@ -7,6 +7,9 @@
 
 <ul class="collapsible-body" [ngClass]="{ collapsibleItems : collapsible }" >
     <li class="collection-item" *ngFor="let song of songs" (dblclick)="flyAwaySong(song)" >
-        <song [song]="song" *ngIf="song.showSong" [@flyOut]></song>
+        <div *ngIf="song.showSong" [@flyOut] class="song">
+            {{ song.name }}
+        </div>
     </li>
 </ul>
+

@@ -12,6 +12,8 @@ import SingerCardComponent from './components/singerCard.component';
 import ImagePreviewComponent from './components/imagePreview/imagePreview.component';
 
 // import UserService from './services/userService';
+import BandService from './services/band.service';
+import MusicStylesService from './services/musicStyles.service';
 import FilterListPipe from './pipes/filterListPipe';
 import LazyLoadDirective from './directives/lazyLoad.directive';
 
@@ -46,6 +48,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -56,7 +59,6 @@ import { PostsComponent } from './posts/posts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SingerProfileComponent } from './singer-profile/singer-profile.component';
 import { MusicStyleComponent } from './music-style/music-style.component';
-import { SongComponent } from './song/song.component';
 
 
 const routes = [
@@ -86,16 +88,19 @@ const routes = [
         /* */
         LazyLoadDirective,
         SingerProfileComponent,
-        MusicStyleComponent,
-        SongComponent
+        MusicStyleComponent
         ],
         imports: [
         BrowserModule,
         FormsModule,
         RouterModule.forRoot(routes),
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        HttpClientModule
     ],
-    providers: [],
+    providers: [
+        BandService,
+        MusicStylesService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
