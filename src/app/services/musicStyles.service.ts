@@ -11,7 +11,7 @@ export default class MusicStylesService {
 
     getMusicStyles(): Promise<string[]> {
         return new Promise((resolve, reject) => {
-            this.httpClient.get(`${this.endpoint}/styls`).subscribe(response => resolve(response),
+            this.httpClient.get(`${this.endpoint}/styles`).subscribe(response => resolve(response),
                                                                 error => reject(error));
         });
     }
