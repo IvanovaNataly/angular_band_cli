@@ -7,7 +7,7 @@ import SingerModel from '../../models/singerModel';
     styleUrls: ['./imagePreview.component.css']
 })
 
-export default class ImagePreviewComponent {
+export class ImagePreviewComponent {
     @Input()
     singer: SingerModel;
 

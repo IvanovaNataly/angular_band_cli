@@ -1,0 +1,22 @@
+.profile-form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.input-field label {
+    position: static;
+}
+
+input.invalidClass {
+    border-bottom: 1px solid crimson !important;
+    box-shadow: none !important;
+}
+
+/*.invalidClass {*/
+    /*border: 1px solid yellow !important;*/
+/*}*/
+
+/*input[type=text]:not(.browser-default):focus:not([readonly]) {*/
+    /*border-bottom: 1px solid #9e9e9e;*/
+    /*box-shadow: none;*/
+/*}*/

@@ -1,11 +1,14 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Band CLI</a>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Band CLI</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li routerLinkActive="active"><a routerLink="/followers">Followers</a></li>
+            <li routerLinkActive="active"><a routerLink="/posts">Posts</a></li>
+        </ul>
+        <div class="user-name">Welcome,
+            <a routerLink="/profile" class="user-name">{{ userName }}</a>
+        </div>
     </div>
-    <ul class="nav navbar-nav">
-      <li routerLinkActive="active"><a routerLink="/followers">Followers</a></li>
-      <li routerLinkActive="active"><a routerLink="/posts">Posts</a></li>
-    </ul>
-  </div>
 </nav>

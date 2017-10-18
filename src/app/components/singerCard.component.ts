@@ -8,7 +8,7 @@ import SingerModel from '../models/singerModel';
     styleUrls: ['./singerCard.component.css']
 })
 
-export default class SingerCardComponent {
+export class SingerCardComponent {
     @Input()
     singer: SingerModel;
 

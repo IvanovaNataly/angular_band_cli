@@ -7,11 +7,11 @@
 //
 // import { AppComponent } from './app.component';
 // // import {TopHeaderComponent} from './components/topHeader.component';
- import {MainContainerComponent} from './components/main.component';
-import SingerCardComponent from './components/singerCard.component';
-import ImagePreviewComponent from './components/imagePreview/imagePreview.component';
+import { MainContainerComponent } from './components/main.component';
+import { SingerCardComponent } from './components/singerCard.component';
+import { ImagePreviewComponent} from './components/imagePreview/imagePreview.component';
 
-// import UserService from './services/userService';
+import UserService from './services/userService';
 import BandService from './services/band.service';
 import MusicStylesService from './services/musicStyles.service';
 import FilterListPipe from './pipes/filterListPipe';
@@ -59,6 +59,8 @@ import { PostsComponent } from './posts/posts.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SingerProfileComponent } from './singer-profile/singer-profile.component';
 import { MusicStyleComponent } from './music-style/music-style.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { UserSummaryComponent } from './user-summary/user-summary.component';
 
 
 const routes = [
@@ -66,6 +68,8 @@ const routes = [
     {path: 'followers/:id', component: GithubProfileComponent},
     {path: 'followers', component: GithubFollowersComponent},
     {path: 'singer', component: SingerProfileComponent},
+    {path: 'profile', component: UserProfileComponent},
+    {path: 'summary', component: UserSummaryComponent},
     {path: '', component: HomeComponent},
     {path: '**', component: NotFoundComponent}
 ]
@@ -88,7 +92,9 @@ const routes = [
         /* */
         LazyLoadDirective,
         SingerProfileComponent,
-        MusicStyleComponent
+        MusicStyleComponent,
+        UserProfileComponent,
+        UserSummaryComponent
         ],
         imports: [
         BrowserModule,
@@ -99,7 +105,8 @@ const routes = [
     ],
     providers: [
         BandService,
-        MusicStylesService
+        MusicStylesService,
+        UserService
     ],
     bootstrap: [AppComponent]
 })

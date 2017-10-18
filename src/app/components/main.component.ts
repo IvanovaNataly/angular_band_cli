@@ -20,7 +20,7 @@ export class MainContainerComponent implements OnInit {
 
     name: string = '';
 
-    constructor(private sanitizer: DomSanitizer, private bandService: BandService, private musicStylesService: MusicStylesService) {
+    constructor(private sanitizer: DomSanitizer, private bandService: BandService, private musicStylesService: MusicStylesService, private userService: UserService) {
         // this.singers = [
         //     new SingerModel('Snatam Kaur', '../assets/snatam.jpeg', 'https://www.youtube.com/embed/LYDPdd1MOcA', true),
         //     new SingerModel('Uma Mohan', '../assets/mohan.jpeg'),
@@ -48,7 +48,6 @@ export class MainContainerComponent implements OnInit {
                     this.singers = singers;
                     this.musicStyles = musicStyles;
                     this.videoSource = this.sanitizer.bypassSecurityTrustResourceUrl(this.singers[0].videoUrl);
-                    console.log(this.singers);
                 })
             .catch(error => {
                 console.log("Error in Promise at service:", error);
@@ -78,10 +77,9 @@ export class MainContainerComponent implements OnInit {
         console.log(this.singers);
     }
 
-    // saveName() {
-    //     this.userService.sendToLocalStorage(this.name, 'loggedInUser');
-    // }
-// , private userService: UserService
+    saveName() {
+        this.userService.sendToLocalStorage(this.name);
+    }
 
 
 }
