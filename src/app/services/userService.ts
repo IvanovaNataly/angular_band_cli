@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
 import UserModel from '../models/userModel';
+import UserNameModel from '../models/userNameModel';
+import { Subject } from "rxjs";
 
 @Injectable()
 export default class UserService {
     key: string = "loggedInUser";
     _userSummary: UserModel;
+    detailsUpdate: Subject<UserNameModel> = new Subject();
 
     sendToLocalStorage(userName: string ){
         localStorage.setItem(this.key, JSON.stringify(userName));
@@ -21,5 +24,18 @@ export default class UserService {
 
     get userSummary() {
         return this._userSummary;
+    }
+
+    saveUser(user: UserNameModel) {
+        console.log("Saving..", user);
+
+        setTimeout(() => {
+
+            console.log("Saved", user);
+            this.detailsUpdate.next(user);
+
+        }, 1500);
+
+
     }
 }

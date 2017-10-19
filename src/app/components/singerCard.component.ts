@@ -1,4 +1,4 @@
-import {Component, Input, EventEmitter, Output} from '@angular/core';
+import {Component, Input, EventEmitter, Output, OnInit} from '@angular/core';
 import SingerModel from '../models/singerModel';
 
 
@@ -8,7 +8,7 @@ import SingerModel from '../models/singerModel';
     styleUrls: ['./singerCard.component.css']
 })
 
-export class SingerCardComponent {
+export class SingerCardComponent implements OnInit{
     @Input()
     singer: SingerModel;
 

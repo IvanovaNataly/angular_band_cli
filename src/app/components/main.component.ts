@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import SingerModel from '../models/singerModel';
+import { Router } from '@angular/router';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import SingerModel from '../models/singerModel';
+import UserNameModel from '../models/userNameModel';
 import UserService from '../services/userService';
 import BandService from '../services/band.service';
 import MusicStylesService from '../services/musicStyles.service';
@@ -20,7 +22,9 @@ export class MainContainerComponent implements OnInit {
 
     name: string = '';
 
-    constructor(private sanitizer: DomSanitizer, private bandService: BandService, private musicStylesService: MusicStylesService, private userService: UserService) {
+    user: UserNameModel;
+
+    constructor(private sanitizer: DomSanitizer, private bandService: BandService, private musicStylesService: MusicStylesService, private userService: UserService, private router: Router) {
         // this.singers = [
         //     new SingerModel('Snatam Kaur', '../assets/snatam.jpeg', 'https://www.youtube.com/embed/LYDPdd1MOcA', true),
         //     new SingerModel('Uma Mohan', '../assets/mohan.jpeg'),
@@ -79,7 +83,12 @@ export class MainContainerComponent implements OnInit {
 
     saveName() {
         this.userService.sendToLocalStorage(this.name);
+        this.router.navigate(['/profile']);
     }
 
-
+    saveUser(value: any) {
+        this.user = value;
+        this.userService.saveUser(this.user);
+    }
 }
+

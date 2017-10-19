@@ -19,14 +19,25 @@
 
     <div>
 
-        <div class="input-field col s6">
-            <input placeholder="Placeholder" id="first_name" type="text" class="validate" [(ngModel)]="name" (keyup.enter)="saveName($event)">
-            <label for="first_name" class="active">First Name</label>
-        </div>
+        <!--<div class="input-field col s6">-->
+            <!--<input placeholder="Enter Your Name" id="first_name" type="text" class="validate" [(ngModel)]="name" (keyup.enter)="saveName($event)">-->
+            <!--<label for="first_name" class="active">First Name</label>-->
+        <!--</div>-->
 
         <!--<div>-->
             <!--My First Name {{ name }}-->
         <!--</div>-->
+
+        <form class="form" #userForm="ngForm" (ngSubmit)="saveUser(userForm.value)">
+            <div class="input-field col s6">
+                <input placeholder="Your name" id="first_name" type="text" class="validate" name="name" ngModel >
+                <label for="first_name" class="active">Type your first name</label>
+            </div>
+            <div>
+                <button class="btn" type="submit">Subscribe</button>
+            </div>
+        </form>
+
 
         <ul class="collapsible" data-collapsible="accordion">
             <li *ngFor="let musicStyle of musicStyles; let i = index" >
