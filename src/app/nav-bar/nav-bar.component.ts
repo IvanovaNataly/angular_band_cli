@@ -12,11 +12,11 @@ export class NavBarComponent implements OnInit {
     user: UserNameModel;
 
   constructor(private userService: UserService) {
-      // this.userName = this.userService.getFromLocalStorage();
-      // console.log("nav1", this.userName);
   }
 
   ngOnInit() {
+      // this.userName = this.userService.getFromLocalStorage();
+      this.user = this.userService.getFromLocalStorage();
       this.userService.detailsUpdate.subscribe(this.onUserDetailsChange.bind(this));
   }
 

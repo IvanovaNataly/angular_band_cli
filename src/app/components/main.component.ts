@@ -88,6 +88,7 @@ export class MainContainerComponent implements OnInit {
 
     saveUser(value: any) {
         this.user = value;
+        this.userService.sendToLocalStorage(this.user);
         this.userService.saveUser(this.user);
     }
 }
