@@ -3,9 +3,17 @@
         <div class="row">
             <div class="input-field col s6">
                 <label for="first_name">First Name</label>
-                <input id="first_name" type="text" [ngClass]="{validate: true, invalidClass: (first.dirty || first.touched) && first.invalid }" #first="ngModel" placeholder="Your first name" ngModel name="first" required minlength="6">
-                <div [hidden] = "first.valid || first.pristine " class="alert alert-danger">Please, enter a name of </div>
-                       </div>
+                <input id="first_name" type="text" [ngClass]="{validate: true, invalidClass: (first.dirty || first.touched) && first.invalid }" #first="ngModel" placeholder="Your first name" ngModel name="first" required minlength="4" maxlength="10">
+                <!--<div [hidden] = "first.valid || first.pristine " class="alert alert-danger">Please, enter a name </div>-->
+                <div *ngIf="first.errors && (first.dirty || first.touched)" class="alert alert-danger">
+                    <div [hidden]="!first.errors.required">
+                        Please, enter a name
+                    </div>
+                    <div [hidden]="!first.errors.minlength">
+                        Please, enter at least 4 characters
+                    </div>
+                </div>
+            </div>
             <div class="input-field col s6">
                 <label for="last_name">Last Name</label>
                 <input id="last_name" type="text"  [ngClass]="{validate: true, invalidClass: (last.dirty || last.touched) && last.invalid }" #last="ngModel" placeholder="Your last name" ngModel name="last" required>
@@ -15,8 +23,19 @@
         <div class="row">
             <div class="input-field col s12">
                 <label for="password">Password</label>
-                <input id="password" type="password"  [ngClass]="{validate: true, invalidClass: (pass.dirty || pass.touched) && pass.invalid }" #pass="ngModel" placeholder="Choose a password" ngModel name="password" required>
-                <div [hidden] = "pass.valid || pass.pristine" class="alert alert-danger">Please, choose a password.</div>
+                <input id="password" type="password" pattern="^[0-9]{1,45}$" minlength="4" [ngClass]="{validate: true, invalidClass: (pass.dirty || pass.touched) && pass.invalid }" #pass="ngModel" placeholder="Choose a password" ngModel name="password" required>
+                <!--<div [hidden] = "pass.valid || pass.pristine" class="alert alert-danger">Please, choose a password.</div>-->
+                <div *ngIf="pass.errors && (pass.dirty || pass.touched)" class="alert alert-danger">
+                    <div [hidden]="!pass.errors.required">
+                        Please, enter a password
+                    </div>
+                    <div [hidden]="!pass.errors.pattern">
+                        Please, enter 4 digits
+                    </div>
+                    <div [hidden]="!pass.errors.minlength" >
+                        Please, enter at least 4 digits
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -26,7 +45,7 @@
                 <div [hidden] = "email.valid || email.pristine" class="alert alert-danger">Please, enter you email address.</div>
             </div>
         </div>
-        <button type="Submit" class="waves-effect waves-light btn">Submit</button>
+        <button type="Submit" [disabled]="!userForm.form.valid" class="waves-effect waves-light btn">Submit</button>
     </form>
 
 </div>

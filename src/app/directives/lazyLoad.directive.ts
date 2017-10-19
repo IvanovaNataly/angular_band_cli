@@ -9,7 +9,7 @@ export default class LazyLoadDirective implements OnInit {
     lazyLoad: string;
 
     constructor(private elementRef: ElementRef){
-        console.log(elementRef.nativeElement);
+        // console.log(elementRef.nativeElement);
     };
 
     ngOnInit() {
